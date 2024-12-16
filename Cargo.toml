@@ -1,0 +1,10 @@
+[package]
+name = "random_number_distribution"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+macroquad = { version = "0.4"}
+
+[profile.dev.package.'*']
+opt-levl = 3
