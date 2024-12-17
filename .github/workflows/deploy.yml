@@ -28,6 +28,12 @@ jobs:
         run: cargo build --release --target wasm32-unknown-unknown
 
       - name: Prepare deployment directory
+        run: |
+          mkdir -p ./deploy/assets
+          cp ./target/wasm32-unknown-unknown/release/random_number_distribution.wasm ./deploy/
+          cp index.html ./deploy/
+
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN}}
