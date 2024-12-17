@@ -23,7 +23,6 @@ async fn main() {
         let mut reset: bool = true;
         for count in random_counts {
 
-            println!("count is {} screen_height is {}", count, screen_height());
 
             if (count as f32) < screen_height() {
                 reset = false;
@@ -33,7 +32,6 @@ async fn main() {
         }
         
         if reset {
-            println!("resetting");
             random_counts = [0; TOTAL];
         }
 
