@@ -1,5 +1,4 @@
 use macroquad::prelude::*;
-use std::fs;
 
 
 #[macroquad::main(window_conf)]

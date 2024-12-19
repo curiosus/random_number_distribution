@@ -4,8 +4,6 @@ on:
     branches:
       - main
 
-  workflow_dispatch:
-
 permissions:
   contents: write
   pages: write
@@ -27,16 +25,14 @@ jobs:
       - name: Build
         run: cargo build --release --target wasm32-unknown-unknown
 
-      - name: Prepare deployment directory
+      - name: Prepare Deployment Directory
         run: |
-          mkdir -p ./deploy/
-          cp ./target/wasm32-unknown-unknown/release/random_number_distribution.wasm ./deploy/
+          mkdir -p ./deploy/assets
+          cp ./target/wasm32-unknown-unknown/release/flyaway.wasm ./deploy/
           cp index.html ./deploy/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./deploy
-
-
